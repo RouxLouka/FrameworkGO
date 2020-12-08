@@ -125,7 +125,7 @@ type TripDetail struct {
 	Destination      string `json:"Destination"`
 	DoubleType       string `json:"DoubleType"`
 	Duration         string `json:"Duration"`
-	Goods            string `json:"Goods,omitempty"`
+	Goods            string `json:"Goods"`
 	HotelName        string `json:"HotelName,omitempty"`
 	HotelRating      string `json:"HotelRating,omitempty"`
 	Lat              string `json:"Lat,omitempty"`

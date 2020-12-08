@@ -37,6 +37,21 @@ func initHandlers() {
 		transport.ProductEndpoint(svc), transport.DecodeProductRequest, transport.EncodeResponse,
 	))
 
+	//fastpay handler
+	http.Handle(fmt.Sprintf("%s/fastpay", root), httptransport.NewServer(
+		transport.FastEndpoint(svc), transport.DecodeFastPayRequest, transport.EncodeResponse,
+	))
+
+	//Call handler
+	http.Handle(fmt.Sprintf("%s/call", root), httptransport.NewServer(
+		transport.CallEndpoint(svc), transport.DecodeCallRequest, transport.EncodeResponse,
+	))
+
+	//InquiryStatus handler
+	http.Handle(fmt.Sprintf("%s/status", root), httptransport.NewServer(
+		transport.StatusEndpoint(svc), transport.DecodeStatusRequest, transport.EncodeResponse,
+	))
+
 }
 
 var logger *log.Entry
